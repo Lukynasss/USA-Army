@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Štáb</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: url('pozadi.png') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #114103, #0e1d09);
+      color: white;
+      padding: 20px 40px;
+      font-size: 3em;
+      font-weight: bold;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      margin: 40px auto 30px auto;
+    }
+
+    .content {
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 40px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 900px;
+      font-size: 1.2em;
+      line-height: 1.8;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      margin-bottom: 80px;
+    }
+
+    .division-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 2em;
+    }
+
+    .division-header img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .division-header h2 {
+      font-size: 1.6em;
+      color: white;
+      margin: 0;
+    }
+
+    .menu {
+      position: absolute;
+      bottom: 40px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .menu a button {
+      background-color: #114103;
+      border: none;
+      border-radius: 15px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .menu a button:hover {
+      background-color: #74b2f2;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.9em;
+      color: white;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="highlight">Divize</div>
+
+  <div class="content">
+    <div class="division-header">
+      <img src="images/usaf.jpg" alt="US Air Force logo">
+      <h2>US Air Force</h2>
+    </div>
+    <p>Vzdušné síly USA zajišťují leteckou podporu, přepravu, průzkum a obranu vzdušného prostoru. Jsou klíčovým prvkem pro rychlou reakci a globální působnost.</p>
+
+    <div class="division-header">
+      <img src="images/usranger.jpg" alt="75th Ranger Regiment logo">
+      <h2>75th Ranger Regiment</h2>
+    </div>
+    <p>Elitní lehká pěchotní jednotka U.S. Army specializovaná na rychlé nasazení, přepadové operace a speciální mise. Je známá vysokou úrovní výcviku a připravenosti.</p>
+
+    <div class="division-header">
+      <img src="images/us1st.png" alt="1st Armored Division logo">
+      <h2>1st Armored Division</h2>
+    </div>
+    <p>Těžká obrněná divize s dlouhou historií. Zaměřuje se na pozemní boj, využívá tanky, obrněná vozidla a moderní technologie pro podporu operací.</p>
+
+    <div class="division-header">
+      <img src="images/us101.jpg" alt="101st Airborne Division logo">
+      <h2>101st Airborne Division</h2>
+    </div>
+    <p>Známá jako “Screaming Eagles”, tato jednotka je specializovaná na výsadkové a letecké operace. Vyznačuje se vysokou mobilitou a schopností nasazení odkudkoli.</p>
+
+    <div class="division-header">
+      <img src="images/usmp.jpg" alt="US Military Police logo">
+      <h2>US Military Police</h2>
+    </div>
+    <p>Vojenská policie zajišťuje bezpečnost, pořádek a dodržování vojenského práva uvnitř i vně základny. Podílí se také na ochraně objektů a eskortách.</p>
+
+    <div class="division-header">
+      <img src="images/usmedical.jpg" alt="US Medical Corps logo">
+      <h2>US Medical Corps</h2>
+    </div>
+    <p>Zdravotnický sbor poskytuje lékařskou péči vojákům v poli i v zázemí. Součástí jsou lékaři, zdravotníci i specializovaný personál pro krizové situace.</p>
+  </div>
+
+  <div class="menu">
+    <a href="index.html"><button>Zpět na hlavní stránku</button></a>
+  </div>
+
+</body>
+</html>

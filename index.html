@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>United States Armed Forces</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background:  url('pozadi.png') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative; /* Zajišťuje, že všechny absolutně pozicované prvky budou relativní vůči tělu */
+    }
+
+    /* Hlavní nadpis */
+    .highlight {
+      background: linear-gradient(135deg, #114103,  #0e1d09);
+      color: white;
+      display: inline-block;
+      padding: 20px 40px;
+      font-size: 3em;
+      font-weight: bold;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 0, 0, 0.3);
+      position: absolute; /* Absolutní pozicování pro snadné přesunutí */
+      top: 20px; /* Zde si upravte pozici */
+      left: 25%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    /* Motto (bílý text) */
+    .motto {
+      font-style: italic;
+      font-size: 8em;
+      color: rgba(255, 255, 255, 0.75);
+      position: absolute;
+      top: 50%; /* Upravte dle potřeby */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      letter-spacing: 5px;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8);
+      z-index: 1;
+    }
+
+    /* Loga jednotek */
+    .branches {
+      display: flex;
+      justify-content: center;
+      gap: 70px;
+      position: absolute; /* Absolutní pozicování pro nezávislé přesouvání */
+      top: 2%; /* Můžete upravit výšku pozice */
+      left: 76%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    .branch {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3em;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .branch:hover {
+      transform: scale(1.1);
+    }
+
+    .branches img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    /* Tlačítka */
+    .menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      position: absolute;
+      bottom: 50px; /* Tlačítka umístíme na spodní část */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    .menu button {
+      background-color: #114103;
+      border: none;
+      border-radius: 20px;
+      padding: 30px 60px;
+      font-size: 2em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      color: white;
+    }
+
+    .menu button:hover {
+      background-color: #74b2f2;
+    }
+
+    /* Motto "This We'll Defend" */
+    .defend-text {
+      font-size: 3.5em;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.2);
+      margin-top: 50px;
+      letter-spacing: 2px;
+      text-align: center;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+      position: absolute;
+      bottom: 80%;
+      left: 18%;
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+    
+    .footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9em;
+  color: white;
+  opacity: 0.7;
+}
+
+.footer a {
+  color: white;
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+ 
+    
+  </style>
+</head>
+<body>
+
+  <!-- Hlavní nadpis -->
+  <div class="highlight">UNITED STATES ARMED FORCES</div>
+
+  <!-- Loga jednotek -->
+  <div class="branches">
+    <div class="branch">
+      <img src="images/us_army.jpg" alt="US Army Logo">
+    </div>
+    <div class="branch">
+      <img src="images/usaf.jpg" alt="US Air Force Logo">
+    </div>
+    <div class="branch">
+      <img src="images/us_navy.jpg" alt="US Navy Logo">
+    </div>
+  </div>
+
+  <!-- Tlačítka -->
+  <div class="menu">
+    <a href="divize.html">
+      <button>DIVIZE</button>
+    </a>
+    <a href="info.html">
+      <button>INFO</button>
+    </a>
+    <a href="fotky.html">
+      <button>FOTKY</button>
+    </a>
+    <a href="stáb.html">
+      <button>ŠTÁB</button>
+    </a>
+    <a href="formular.html">
+      <button>FORMULÁŘ</button>
+    </a>
+  </div>
+
+  <!-- Motto "This We'll Defend" -->
+  <div class="defend-text">
+    This We'll Defend
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 Vytvořil Lukynasss |  
+    <a href="https://github.com/Lukynasss" target="_blank" style="color: white; text-decoration: underline;">GitHub</a>
+  </footer>
+  
+</body>
+</html>

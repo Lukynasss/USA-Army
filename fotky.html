@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Fotky</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: url('pozadi.png') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #114103, #0e1d09);
+      color: white;
+      padding: 20px 40px;
+      font-size: 3em;
+      font-weight: bold;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      margin-bottom: 30px;
+    }
+
+    .gallery-wrapper {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 1000px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .menu {
+      position: absolute;
+      bottom: 40px;
+    }
+
+    .menu a button {
+      background-color: #114103;
+      border: none;
+      border-radius: 15px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .menu a button:hover {
+      background-color: #74b2f2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="highlight">Galerie fotek</div>
+
+  <!-- Galerie fotek obalená rámečkem -->
+  <div class="gallery-wrapper">
+    <div class="gallery">
+      <img src="images/foto1.png" alt="Fotka 1">
+      <img src="images/foto2.png" alt="Fotka 2">
+      <img src="images/foto3.jpg" alt="Fotka 3">
+      <img src="images/foto4.png" alt="Fotka 4">
+      <!-- Další fotky můžeš přidat sem -->
+    </div>
+  </div>
+
+  <div class="menu">
+    <a href="index.html"><button>Zpět na hlavní stránku</button></a>
+  </div>
+
+</body>
+</html>

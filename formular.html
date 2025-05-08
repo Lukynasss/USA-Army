@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulář</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: url('pozadi.png') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #114103, #0e1d09);
+      color: white;
+      padding: 20px 40px;
+      font-size: 3em;
+      font-weight: bold;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      margin-bottom: 50px;
+      border: 2px solid black;
+      margin-left: 20px; /* Odlepení nápisu od levého okraje */
+      margin-right: 20px; /* Odlepení nápisu od pravého okraje */
+      margin-top: 40px;
+    }
+
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.6); /* Průhledné černé pozadí */
+      color: white;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 800px;
+      width: 100%;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      line-height: 1.6;
+      border: 2px solid black;
+      overflow: auto;
+      max-height: 90vh; /* Omezí výšku, aby se nevešel celý formulář na stránku */
+      margin-top: 40px; /* Zvětšený horní okraj */
+      margin-bottom: 40px; /* Zvětšený dolní okraj */
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.2em;
+      margin-bottom: 5px;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 10px;
+      border: 2px solid black;
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .form-group input[type="submit"] {
+      background-color: #114103;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+      border: 2px solid black;
+      transition: background-color 0.3s;
+    }
+
+    .form-group input[type="submit"]:hover {
+      background-color: #74b2f2;
+    }
+
+    .menu {
+      margin-top: 20px;
+      text-align: center;
+      margin-left: 20px; /* Odlepení tlačítka od levého okraje */
+      margin-right: 20px; /* Odlepení tlačítka od pravého okraje */
+    }
+
+    .menu a button {
+      background-color: #114103;
+      border: 2px solid black; /* Černý rámeček */
+      border-radius: 15px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-bottom: 40px;
+    }
+
+    .menu a button:hover {
+      background-color: #74b2f2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="highlight">Formulář přihlášky</div>
+
+  <div class="form-container">
+    <form action="https://formspree.io/f/manojkon" method="post">
+
+      <h2>OOC (Out of Character)</h2>
+
+      <div class="form-group">
+        <label for="discord">Discord</label>
+        <input type="text" id="discord" name="discord" required>
+      </div>
+
+      <div class="form-group">
+        <label for="vek">Věk</label>
+        <input type="number" id="vek" name="vek" required>
+      </div>
+
+      <div class="form-group">
+        <label for="zkusenosti s armadou">Máš zkušenosti s RP armády</label>
+        <select id="zkusenosti s armadou" name="zkusenosti s armadou">
+          <option value="yes">Ano</option>
+          <option value="no">Ne</option>
+        </select>
+      </div>
+
+      <h2>IC (In Character)</h2>
+
+      <div class="form-group">
+        <label for="jmeno a prijmeni">Jméno a příjmení</label>
+        <input type="text" id="jmeno a prijmeni" name="jmeno a prijmeni" required>
+      </div>
+
+      <div class="form-group">
+        <label for="pohlavi">Pohlaví</label>
+        <select id="pohlavi" name="pohlavi">
+          <option value="male">Muž</option>
+          <option value="female">Žena</option>
+          <option value="other">Ostatní</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="zdravotni porblemy">Máte nějaké zdravotní problémy?</label>
+        <textarea id="zdravotni porblemy" name="zdravotni porblemy" rows="4"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="proc chcete do armady">Proč se hlásíte do armády?</label>
+        <textarea id="proc chcete do armady" name="proc chcete do armady" rows="4"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="predchozi prace">Jaká byla vaše minulá povolání?</label>
+        <textarea id="predchozi prace" name="predchozi prace" rows="4"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="jsi schopen polozit zivot">Jste schopen pro naši zemi položit život?</label>
+        <select id="jsi schopen polozit zivot" name="jsi schopen polozit zivot">
+          <option value="yes">Ano</option>
+          <option value="no">Ne</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="chces byt instruktor">Chtěl by jste se přidat k výcvikovým instruktorům?</label>
+        <select id="chces byt instruktor" name="chces byt instruktor">
+          <option value="yes">Ano</option>
+          <option value="no">Ne</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="Odeslat formulář">
+      </div>
+
+    </form>
+  </div>
+
+  <div class="menu">
+    <a href="index.html"><button>Zpět na hlavní stránku</button></a>
+  </div>
+
+</body>
+</html>
