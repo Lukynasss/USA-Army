@@ -171,14 +171,14 @@
     document.getElementById("discord-form").addEventListener("submit", async function(e) {
       e.preventDefault();
 
-      const webhookURL = "https://discord.com/api/webhooks/1373275554844905564/5cGrIoVTSxFzphzuQonzicLN5TSrmNbcobh45N1YlwBd7ecEnc-pJ2EsqKmYOpy00TOh"; // <<< Nahraď svým webhookem
+      const webhookURL = "TVŮJ_WEBHOOK_URL"; // <<< Nahraď svým webhookem
 
       const formData = new FormData(this);
 
-      // Sestavení textu pro Discord
+      // Sestavení textu pro Discord s lepším formátováním
       let message = "**📨 Nová přihláška**\n\n";
 
-      // Přehledné definování názvů pro každé pole a jejich hodnoty
+      // Přehledně formátovaná zpráva
       const fields = [
         { label: "🆔 Discord", value: formData.get("discord") },
         { label: "📅 Věk", value: formData.get("vek") },
@@ -193,9 +193,9 @@
         { label: "🏛️ Větev", value: formData.get("branch") }
       ];
 
-      // Vytvoření přehledné zprávy
+      // Formátování každé položky na novou řádku
       fields.forEach(field => {
-        message += `**${field.label}:** ${field.value}\n\n`;
+        message += `**${field.label}:** ${field.value}\n`;
       });
 
       const payload = {
