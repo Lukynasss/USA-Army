@@ -15,7 +15,6 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      position: relative;
     }
 
     .highlight {
@@ -44,7 +43,7 @@
       border: 2px solid black;
       overflow: auto;
       max-height: 90vh;
-      margin: 40px 0;
+      margin: 40px 20px;
     }
 
     .form-container h2 {
@@ -62,7 +61,9 @@
       margin-bottom: 5px;
     }
 
-    .form-group input, .form-group select, .form-group textarea {
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
       width: 100%;
       padding: 10px;
       font-size: 1em;
@@ -112,25 +113,25 @@
   <div class="highlight">Formulář přihlášky</div>
 
   <div class="form-container">
-    <form action="https://formspree.io/f/myzwobwl" method="POST">
+    <form id="discord-form">
 
       <h2>OOC (Out of Character)</h2>
 
       <div class="form-group">
         <label for="discord">Discord</label>
-        <input type="text" id="discord" name="discord" required>
+        <input type="text" id="discord" name="Discord" required>
       </div>
 
       <div class="form-group">
         <label for="vek">Věk</label>
-        <input type="number" id="vek" name="vek" required>
+        <input type="number" id="vek" name="Věk" required>
       </div>
 
       <div class="form-group">
         <label for="zkusenosti">Máš zkušenosti s RP armády</label>
-        <select id="zkusenosti" name="zkusenosti">
-          <option value="yes">Ano</option>
-          <option value="no">Ne</option>
+        <select id="zkusenosti" name="Zkušenosti s armádou">
+          <option value="Ano">Ano</option>
+          <option value="Ne">Ne</option>
         </select>
       </div>
 
@@ -138,60 +139,56 @@
 
       <div class="form-group">
         <label for="jmeno">Jméno a příjmení</label>
-        <input type="text" id="jmeno" name="jmeno_a_prijmeni" required>
+        <input type="text" id="jmeno" name="Jméno a příjmení" required>
       </div>
 
       <div class="form-group">
         <label for="pohlavi">Pohlaví</label>
-        <select id="pohlavi" name="pohlavi">
-          <option value="male">Muž</option>
-          <option value="female">Žena</option>
-          <option value="other">Ostatní</option>
+        <select id="pohlavi" name="Pohlaví">
+          <option value="Muž">Muž</option>
+          <option value="Žena">Žena</option>
+          <option value="Ostatní">Ostatní</option>
         </select>
       </div>
 
       <div class="form-group">
         <label for="zdravotni">Máte nějaké zdravotní problémy?</label>
-        <textarea id="zdravotni" name="zdravotni_problemy" rows="4"></textarea>
+        <textarea id="zdravotni" name="Zdravotní problémy" rows="4"></textarea>
       </div>
 
       <div class="form-group">
-        <label for="proc_armada">Proč se hlásíte do armády?</label>
-        <textarea id="proc_armada" name="proc_do_armady" rows="4"></textarea>
+        <label for="proc">Proč se hlásíte do armády?</label>
+        <textarea id="proc" name="Proč se hlásíte" rows="4"></textarea>
       </div>
 
       <div class="form-group">
         <label for="prace">Jaká byla vaše minulá povolání?</label>
-        <textarea id="prace" name="predchozi_prace" rows="4"></textarea>
+        <textarea id="prace" name="Předchozí práce" rows="4"></textarea>
       </div>
 
       <div class="form-group">
         <label for="zivot">Jste schopen pro naši zemi položit život?</label>
-        <select id="zivot" name="polozit_zivot">
-          <option value="yes">Ano</option>
-          <option value="no">Ne</option>
+        <select id="zivot" name="Položit život?">
+          <option value="Ano">Ano</option>
+          <option value="Ne">Ne</option>
         </select>
       </div>
 
       <div class="form-group">
         <label for="instruktor">Chtěl by jste se přidat k výcvikovým instruktorům?</label>
-        <select id="instruktor" name="chces_instruktor">
-          <option value="yes">Ano</option>
-          <option value="no">Ne</option>
+        <select id="instruktor" name="Instruktor?">
+          <option value="Ano">Ano</option>
+          <option value="Ne">Ne</option>
         </select>
       </div>
 
       <div class="form-group">
         <label for="branch">Do jakého branche chcete vstoupit?</label>
-        <select id="branch" name="branch" required>
+        <select id="branch" name="Branch" required>
           <option value="US Army">US Army</option>
           <option value="US Airforce">US Airforce</option>
         </select>
       </div>
-
-      <!-- Skryté pole pro redirect nebo custom předmět -->
-      <input type="hidden" name="_subject" value="Nová přihláška">
-      <input type="hidden" name="_redirect" value="https://tvoje-stranka.cz/dekujeme.html">
 
       <div class="form-group">
         <input type="submit" value="Odeslat formulář">
@@ -203,6 +200,40 @@
   <div class="menu">
     <a href="index.html"><button>Zpět na hlavní stránku</button></a>
   </div>
+
+  <script>
+    document.getElementById("discord-form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const webhookURL = "https://discord.com/api/webhooks/1373275554844905564/5cGrIoVTSxFzphzuQonzicLN5TSrmNbcobh45N1YlwBd7ecEnc-pJ2EsqKmYOpy00TOh"; // <<<< SEM DEJ SVŮJ WEBHOOK
+
+      const formData = new FormData(this);
+      const message = [...formData.entries()]
+        .map(([key, val]) => `**${key}:** ${val}`)
+        .join("\\n");
+
+      const payload = {
+        content: "📨 **Nová přihláška:**\\n\\n" + message
+      };
+
+      try {
+        const res = await fetch(webhookURL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          alert("Formulář byl úspěšně odeslán.");
+          this.reset();
+        } else {
+          alert("Nastala chyba při odesílání.");
+        }
+      } catch (err) {
+        alert("Chyba: " + err.message);
+      }
+    });
+  </script>
 
 </body>
 </html>
