@@ -2,7 +2,8 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <title>Formulář</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulář přihlášky</title>
   <style>
     body {
       font-family: "Segoe UI", sans-serif;
@@ -15,6 +16,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      position: relative;
     }
 
     .highlight {
@@ -28,7 +30,8 @@
       letter-spacing: 3px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.15);
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      margin: 40px 20px 50px;
+      margin-bottom: 50px;
+      border: 2px solid black;
     }
 
     .form-container {
@@ -41,14 +44,6 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
       line-height: 1.6;
       border: 2px solid black;
-      overflow: auto;
-      max-height: 90vh;
-      margin: 40px 20px;
-    }
-
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
     }
 
     .form-group {
@@ -61,9 +56,7 @@
       margin-bottom: 5px;
     }
 
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
+    .form-group input, .form-group select, .form-group textarea {
       width: 100%;
       padding: 10px;
       font-size: 1em;
@@ -84,28 +77,6 @@
     .form-group input[type="submit"]:hover {
       background-color: #74b2f2;
     }
-
-    .menu {
-      margin-top: 20px;
-      text-align: center;
-      margin: 0 20px 40px;
-    }
-
-    .menu a button {
-      background-color: #114103;
-      border: 2px solid black;
-      border-radius: 15px;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      font-weight: bold;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .menu a button:hover {
-      background-color: #74b2f2;
-    }
   </style>
 </head>
 <body>
@@ -113,78 +84,77 @@
   <div class="highlight">Formulář přihlášky</div>
 
   <div class="form-container">
-    <form id="discord-form">
-
+    <form id="discord-form" action="" method="post">
       <h2>OOC (Out of Character)</h2>
 
       <div class="form-group">
         <label for="discord">Discord</label>
-        <input type="text" id="discord" name="Discord" required>
+        <input type="text" id="discord" name="discord" required>
       </div>
 
       <div class="form-group">
         <label for="vek">Věk</label>
-        <input type="number" id="vek" name="Věk" required>
+        <input type="number" id="vek" name="vek" required>
       </div>
 
       <div class="form-group">
-        <label for="zkusenosti">Máš zkušenosti s RP armády</label>
-        <select id="zkusenosti" name="Zkušenosti s armádou">
-          <option value="Ano">Ano</option>
-          <option value="Ne">Ne</option>
+        <label for="zkusenosti s armadou">Zkušenosti s armádou</label>
+        <select id="zkusenosti s armadou" name="zkusenosti s armadou">
+          <option value="yes">Ano</option>
+          <option value="no">Ne</option>
         </select>
       </div>
 
       <h2>IC (In Character)</h2>
 
       <div class="form-group">
-        <label for="jmeno">Jméno a příjmení</label>
-        <input type="text" id="jmeno" name="Jméno a příjmení" required>
+        <label for="jmeno a prijmeni">Jméno a příjmení</label>
+        <input type="text" id="jmeno a prijmeni" name="jmeno a prijmeni" required>
       </div>
 
       <div class="form-group">
         <label for="pohlavi">Pohlaví</label>
-        <select id="pohlavi" name="Pohlaví">
-          <option value="Muž">Muž</option>
-          <option value="Žena">Žena</option>
-          <option value="Ostatní">Ostatní</option>
+        <select id="pohlavi" name="pohlavi">
+          <option value="male">Muž</option>
+          <option value="female">Žena</option>
+          <option value="other">Ostatní</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label for="zdravotni">Máte nějaké zdravotní problémy?</label>
-        <textarea id="zdravotni" name="Zdravotní problémy" rows="4"></textarea>
+        <label for="zdravotni porblemy">Zdravotní problémy</label>
+        <textarea id="zdravotni porblemy" name="zdravotni porblemy" rows="4"></textarea>
       </div>
 
       <div class="form-group">
-        <label for="proc">Proč se hlásíte do armády?</label>
-        <textarea id="proc" name="Proč se hlásíte" rows="4"></textarea>
+        <label for="proc chcete do armady">Proč se hlásíte do armády?</label>
+        <textarea id="proc chcete do armady" name="proc chcete do armády" rows="4"></textarea>
       </div>
 
       <div class="form-group">
-        <label for="prace">Jaká byla vaše minulá povolání?</label>
-        <textarea id="prace" name="Předchozí práce" rows="4"></textarea>
+        <label for="predchozi prace">Předchozí práce</label>
+        <textarea id="predchozi prace" name="predchozi prace" rows="4"></textarea>
       </div>
 
       <div class="form-group">
-        <label for="zivot">Jste schopen pro naši zemi položit život?</label>
-        <select id="zivot" name="Položit život?">
-          <option value="Ano">Ano</option>
-          <option value="Ne">Ne</option>
+        <label for="jsi schopen polozit zivot">Jste schopen pro naši zemi položit život?</label>
+        <select id="jsi schopen polozit zivot" name="jsi schopen polozit zivot">
+          <option value="yes">Ano</option>
+          <option value="no">Ne</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label for="instruktor">Chtěl by jste se přidat k výcvikovým instruktorům?</label>
-        <select id="instruktor" name="Instruktor?">
-          <option value="Ano">Ano</option>
-          <option value="Ne">Ne</option>
+        <label for="chces byt instruktor">Chceš být instruktor?</label>
+        <select id="chces byt instruktor" name="chces byt instruktor">
+          <option value="yes">Ano</option>
+          <option value="no">Ne</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label for="branch">Do jakého branche chcete vstoupit?</label>
-        <select id="branch" name="Branch" required>
+        <label for="branch">Do jaké větve chcete vstoupit?</label>
+        <select id="branch" name="branch" required>
           <option value="US Army">US Army</option>
           <option value="US Airforce">US Airforce</option>
         </select>
@@ -197,57 +167,72 @@
     </form>
   </div>
 
-  <div class="menu">
-    <a href="index.html"><button>Zpět na hlavní stránku</button></a>
-  </div>
-
   <script>
-  document.getElementById("discord-form").addEventListener("submit", async function(e) {
-    e.preventDefault();
+    document.getElementById("discord-form").addEventListener("submit", async function(e) {
+      e.preventDefault();
 
-    const webhookURL = "https://discord.com/api/webhooks/1373275554844905564/5cGrIoVTSxFzphzuQonzicLN5TSrmNbcobh45N1YlwBd7ecEnc-pJ2EsqKmYOpy00TOh"; // <<< nahraď tím svým webhookem
+      const webhookURL = "https://discord.com/api/webhooks/1373275554844905564/5cGrIoVTSxFzphzuQonzicLN5TSrmNbcobh45N1YlwBd7ecEnc-pJ2EsqKmYOpy00TOh"; // <<< Nahraď svým webhookem
 
-    const formData = new FormData(this);
-    const fields = [];
+      const formData = new FormData(this);
 
-    formData.forEach((value, key) => {
-      fields.push({
-        name: key,
-        value: value || "—",
-        inline: false
-      });
-    });
+      // Přehledné definování názvů pro každé pole
+      const fieldLabels = {
+        "discord": "🆔 Discord",
+        "vek": "📅 Věk",
+        "zkusenosti s armadou": "🎖️ Zkušenosti s armádou",
+        "jmeno a prijmeni": "🧑‍✈️ Jméno a příjmení",
+        "pohlavi": "🚻 Pohlaví",
+        "zdravotni porblemy": "⚕️ Zdravotní problémy",
+        "proc chcete do armady": "❓ Proč se hlásíte do armády",
+        "predchozi prace": "💼 Předchozí povolání",
+        "jsi schopen polozit zivot": "🪖 Položení života pro zemi?",
+        "chces byt instruktor": "🎯 Chceš být instruktor?",
+        "branch": "🏛️ Větev"
+      };
 
-    const embed = {
-      title: "📨 Nová přihláška do armády",
-      color: 3066993, // zelená
-      fields: fields,
-      timestamp: new Date().toISOString()
-    };
+      const fields = [];
 
-    const payload = {
-      embeds: [embed]
-    };
-
-    try {
-      const res = await fetch(webhookURL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-
-      if (res.ok) {
-        alert("Formulář byl úspěšně odeslán do Discordu.");
-        this.reset();
-      } else {
-        alert("Chyba při odesílání do Discordu.");
+      // Přidáme všechny hodnoty do embed pole
+      for (const [key, value] of formData.entries()) {
+        if (fieldLabels[key]) {
+          fields.push({
+            name: fieldLabels[key],
+            value: value || "—",
+            inline: false
+          });
+        }
       }
-    } catch (err) {
-      alert("Chyba: " + err.message);
-    }
-  });
-</script>
 
+      const embed = {
+        title: "📨 Nová přihláška do armády",
+        color: 3066993, // zelená
+        fields: fields,
+        footer: {
+          text: "Formulář přijat",
+        },
+        timestamp: new Date().toISOString()
+      };
+
+      const payload = { embeds: [embed] };
+
+      try {
+        const res = await fetch(webhookURL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          alert("Formulář byl úspěšně odeslán do Discordu.");
+          this.reset();
+        } else {
+          alert("Chyba při odesílání do Discordu.");
+        }
+      } catch (err) {
+        alert("Chyba: " + err.message);
+      }
+    });
+  </script>
 
 </body>
 </html>
