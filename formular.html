@@ -202,38 +202,52 @@
   </div>
 
   <script>
-    document.getElementById("discord-form").addEventListener("submit", async function(e) {
-      e.preventDefault();
+  document.getElementById("discord-form").addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-      const webhookURL = "https://discord.com/api/webhooks/1373275554844905564/5cGrIoVTSxFzphzuQonzicLN5TSrmNbcobh45N1YlwBd7ecEnc-pJ2EsqKmYOpy00TOh"; // <<<< SEM DEJ SVŮJ WEBHOOK
+    const webhookURL = "https://discord.com/api/webhooks/1373275554844905564/5cGrIoVTSxFzphzuQonzicLN5TSrmNbcobh45N1YlwBd7ecEnc-pJ2EsqKmYOpy00TOh"; // <<< nahraď tím svým webhookem
 
-      const formData = new FormData(this);
-      const message = [...formData.entries()]
-        .map(([key, val]) => `**${key}:** ${val}`)
-        .join("\\n");
+    const formData = new FormData(this);
+    const fields = [];
 
-      const payload = {
-        content: "📨 **Nová přihláška:**\\n\\n" + message
-      };
-
-      try {
-        const res = await fetch(webhookURL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        if (res.ok) {
-          alert("Formulář byl úspěšně odeslán.");
-          this.reset();
-        } else {
-          alert("Nastala chyba při odesílání.");
-        }
-      } catch (err) {
-        alert("Chyba: " + err.message);
-      }
+    formData.forEach((value, key) => {
+      fields.push({
+        name: key,
+        value: value || "—",
+        inline: false
+      });
     });
-  </script>
+
+    const embed = {
+      title: "📨 Nová přihláška do armády",
+      color: 3066993, // zelená
+      fields: fields,
+      timestamp: new Date().toISOString()
+    };
+
+    const payload = {
+      embeds: [embed]
+    };
+
+    try {
+      const res = await fetch(webhookURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        alert("Formulář byl úspěšně odeslán do Discordu.");
+        this.reset();
+      } else {
+        alert("Chyba při odesílání do Discordu.");
+      }
+    } catch (err) {
+      alert("Chyba: " + err.message);
+    }
+  });
+</script>
+
 
 </body>
 </html>
