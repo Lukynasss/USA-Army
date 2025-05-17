@@ -1,79 +1,208 @@
-<form action="https://formspree.io/f/myzwobwl" method="POST">
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulář</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: url('pozadi.png') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+    }
 
-  <h2>OOC (Out of Character)</h2>
+    .highlight {
+      background: linear-gradient(135deg, #114103, #0e1d09);
+      color: white;
+      padding: 20px 40px;
+      font-size: 3em;
+      font-weight: bold;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      margin: 40px 20px 50px;
+    }
 
-  <div class="form-group">
-    <label for="discord">Discord</label>
-    <input type="text" id="discord" name="discord" required>
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 800px;
+      width: 100%;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      line-height: 1.6;
+      border: 2px solid black;
+      overflow: auto;
+      max-height: 90vh;
+      margin: 40px 0;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.2em;
+      margin-bottom: 5px;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 10px;
+      border: 2px solid black;
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .form-group input[type="submit"] {
+      background-color: #114103;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+      border: 2px solid black;
+      transition: background-color 0.3s;
+    }
+
+    .form-group input[type="submit"]:hover {
+      background-color: #74b2f2;
+    }
+
+    .menu {
+      margin-top: 20px;
+      text-align: center;
+      margin: 0 20px 40px;
+    }
+
+    .menu a button {
+      background-color: #114103;
+      border: 2px solid black;
+      border-radius: 15px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .menu a button:hover {
+      background-color: #74b2f2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="highlight">Formulář přihlášky</div>
+
+  <div class="form-container">
+    <form action="https://formspree.io/f/myzwobwl" method="POST">
+
+      <h2>OOC (Out of Character)</h2>
+
+      <div class="form-group">
+        <label for="discord">Discord</label>
+        <input type="text" id="discord" name="discord" required>
+      </div>
+
+      <div class="form-group">
+        <label for="vek">Věk</label>
+        <input type="number" id="vek" name="vek" required>
+      </div>
+
+      <div class="form-group">
+        <label for="zkusenosti">Máš zkušenosti s RP armády</label>
+        <select id="zkusenosti" name="zkusenosti">
+          <option value="yes">Ano</option>
+          <option value="no">Ne</option>
+        </select>
+      </div>
+
+      <h2>IC (In Character)</h2>
+
+      <div class="form-group">
+        <label for="jmeno">Jméno a příjmení</label>
+        <input type="text" id="jmeno" name="jmeno_a_prijmeni" required>
+      </div>
+
+      <div class="form-group">
+        <label for="pohlavi">Pohlaví</label>
+        <select id="pohlavi" name="pohlavi">
+          <option value="male">Muž</option>
+          <option value="female">Žena</option>
+          <option value="other">Ostatní</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="zdravotni">Máte nějaké zdravotní problémy?</label>
+        <textarea id="zdravotni" name="zdravotni_problemy" rows="4"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="proc_armada">Proč se hlásíte do armády?</label>
+        <textarea id="proc_armada" name="proc_do_armady" rows="4"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="prace">Jaká byla vaše minulá povolání?</label>
+        <textarea id="prace" name="predchozi_prace" rows="4"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="zivot">Jste schopen pro naši zemi položit život?</label>
+        <select id="zivot" name="polozit_zivot">
+          <option value="yes">Ano</option>
+          <option value="no">Ne</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="instruktor">Chtěl by jste se přidat k výcvikovým instruktorům?</label>
+        <select id="instruktor" name="chces_instruktor">
+          <option value="yes">Ano</option>
+          <option value="no">Ne</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="branch">Do jakého branche chcete vstoupit?</label>
+        <select id="branch" name="branch" required>
+          <option value="US Army">US Army</option>
+          <option value="US Airforce">US Airforce</option>
+        </select>
+      </div>
+
+      <!-- Skryté pole pro redirect nebo custom předmět -->
+      <input type="hidden" name="_subject" value="Nová přihláška">
+      <input type="hidden" name="_redirect" value="https://tvoje-stranka.cz/dekujeme.html">
+
+      <div class="form-group">
+        <input type="submit" value="Odeslat formulář">
+      </div>
+
+    </form>
   </div>
 
-  <div class="form-group">
-    <label for="vek">Věk</label>
-    <input type="number" id="vek" name="vek" required>
+  <div class="menu">
+    <a href="index.html"><button>Zpět na hlavní stránku</button></a>
   </div>
 
-  <div class="form-group">
-    <label for="zkusenosti">Máš zkušenosti s RP armády</label>
-    <select id="zkusenosti" name="zkusenosti">
-      <option value="yes">Ano</option>
-      <option value="no">Ne</option>
-    </select>
-  </div>
-
-  <h2>IC (In Character)</h2>
-
-  <div class="form-group">
-    <label for="jmeno">Jméno a příjmení</label>
-    <input type="text" id="jmeno" name="jmeno_a_prijmeni" required>
-  </div>
-
-  <div class="form-group">
-    <label for="pohlavi">Pohlaví</label>
-    <select id="pohlavi" name="pohlavi">
-      <option value="male">Muž</option>
-      <option value="female">Žena</option>
-      <option value="other">Ostatní</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="zdravotni">Máte nějaké zdravotní problémy?</label>
-    <textarea id="zdravotni" name="zdravotni_problemy" rows="4"></textarea>
-  </div>
-
-  <div class="form-group">
-    <label for="proc_armada">Proč se hlásíte do armády?</label>
-    <textarea id="proc_armada" name="proc_do_armady" rows="4"></textarea>
-  </div>
-
-  <div class="form-group">
-    <label for="prace">Jaká byla vaše minulá povolání?</label>
-    <textarea id="prace" name="predchozi_prace" rows="4"></textarea>
-  </div>
-
-  <div class="form-group">
-    <label for="zivot">Jste schopen pro naši zemi položit život?</label>
-    <select id="zivot" name="polozit_zivot">
-      <option value="yes">Ano</option>
-      <option value="no">Ne</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="instruktor">Chtěl by jste se přidat k výcvikovým instruktorům?</label>
-    <select id="instruktor" name="chces_instruktor">
-      <option value="yes">Ano</option>
-      <option value="no">Ne</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="branch">Do jakého branche chcete vstoupit?</label>
-    <select id="branch" name="branch" required>
-      <option value="US Army">US Army</option>
-      <option value="US Airforce">US Airforce</option>
-    </select>
-  </div>
-
-  <!-- Volitelné přesměrování po odeslání -->
-  <input type="hidden" name="_redirect" value="https://tvoje-str_
+</body>
+</html>
