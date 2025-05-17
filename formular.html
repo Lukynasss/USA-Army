@@ -128,7 +128,7 @@
 
       <div class="form-group">
         <label for="proc chcete do armady">Proč se hlásíte do armády?</label>
-        <textarea id="proc chcete do armady" name="proc chcete do armády" rows="4"></textarea>
+        <textarea id="proc chcete do armady" name="proc chcete do armady" rows="4"></textarea>
       </div>
 
       <div class="form-group">
@@ -175,45 +175,32 @@
 
       const formData = new FormData(this);
 
-      // Přehledné definování názvů pro každé pole
-      const fieldLabels = {
-        "discord": "🆔 Discord",
-        "vek": "📅 Věk",
-        "zkusenosti s armadou": "🎖️ Zkušenosti s armádou",
-        "jmeno a prijmeni": "🧑‍✈️ Jméno a příjmení",
-        "pohlavi": "🚻 Pohlaví",
-        "zdravotni porblemy": "⚕️ Zdravotní problémy",
-        "proc chcete do armady": "❓ Proč se hlásíte do armády",
-        "predchozi prace": "💼 Předchozí povolání",
-        "jsi schopen polozit zivot": "🪖 Položení života pro zemi?",
-        "chces byt instruktor": "🎯 Chceš být instruktor?",
-        "branch": "🏛️ Větev"
+      // Sestavení textu pro Discord
+      let message = "**📨 Nová přihláška**\n\n";
+
+      // Přehledné definování názvů pro každé pole a jejich hodnoty
+      const fields = [
+        { label: "🆔 Discord", value: formData.get("discord") },
+        { label: "📅 Věk", value: formData.get("vek") },
+        { label: "🎖️ Zkušenosti s armádou", value: formData.get("zkusenosti s armadou") },
+        { label: "🧑‍✈️ Jméno a příjmení", value: formData.get("jmeno a prijmeni") },
+        { label: "🚻 Pohlaví", value: formData.get("pohlavi") },
+        { label: "⚕️ Zdravotní problémy", value: formData.get("zdravotni porblemy") || "Žádné" },
+        { label: "❓ Proč se hlásíte do armády", value: formData.get("proc chcete do armady") },
+        { label: "💼 Předchozí povolání", value: formData.get("predchozi prace") },
+        { label: "🪖 Položení života pro zemi?", value: formData.get("jsi schopen polozit zivot") },
+        { label: "🎯 Chceš být instruktor?", value: formData.get("chces byt instruktor") },
+        { label: "🏛️ Větev", value: formData.get("branch") }
+      ];
+
+      // Vytvoření přehledné zprávy
+      fields.forEach(field => {
+        message += `**${field.label}:** ${field.value}\n\n`;
+      });
+
+      const payload = {
+        content: message
       };
-
-      const fields = [];
-
-      // Přidáme všechny hodnoty do embed pole
-      for (const [key, value] of formData.entries()) {
-        if (fieldLabels[key]) {
-          fields.push({
-            name: fieldLabels[key],
-            value: value || "—",
-            inline: false
-          });
-        }
-      }
-
-      const embed = {
-        title: "📨 Nová přihláška do armády",
-        color: 3066993, // zelená
-        fields: fields,
-        footer: {
-          text: "Formulář přijat",
-        },
-        timestamp: new Date().toISOString()
-      };
-
-      const payload = { embeds: [embed] };
 
       try {
         const res = await fetch(webhookURL, {
