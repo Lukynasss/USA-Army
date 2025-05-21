@@ -233,9 +233,12 @@
         { label: "🏛️ Větev", value: formData.get("branch") }
       ];
 
-      // Formátování každé položky na novou řádku
       fields.forEach(field => {
-        message += `**${field.label}:** ${field.value}\n`;
+        if (field.value) {
+          message += `**${field.label}:** ${field.value}\n`;
+        } else {
+          message += `**${field.label}:** (není vyplněno)\n`;
+        }
       });
 
       const payload = {
