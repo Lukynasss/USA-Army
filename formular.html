@@ -239,6 +239,10 @@
         } else {
           message += `**${field.label}:** (není vyplněno)\n`;
         }
+        if (message.trim() === "") {
+          alert("Zpráva je prázdná! Některé hodnoty ve formuláři nejsou vyplněné.");
+          return; // Zastaví odeslání prázdné zprávy
+        }
       });
 
       const payload = {
