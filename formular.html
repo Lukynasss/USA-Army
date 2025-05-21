@@ -257,6 +257,8 @@
           body: JSON.stringify(payload)
         });
 
+        const isSent = navigator.sendBeacon(webhookURL, JSON.stringify(payload));
+        
         if (res.ok) {
           alert("Formulář byl úspěšně odeslán do Discordu.");
           this.reset();
